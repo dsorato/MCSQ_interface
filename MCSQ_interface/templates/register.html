@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+{% extends "index.html" %}
+
+{% block body %}
+    <body>
+        <div style="background-color:lightgrey;color:black;padding:5px; border: blueviolet 1px ;width: 1000px; height: 800px;">
+        <h2><b>GDPR Compliance</b></h2>
+        <p><b>In accordance with the provisions of the General Data Protection Regulation, Regulation (EU) 2016/679, we summarize our data protection information:</b></p>
+        <p style="text-align:left;"><b>Data controller:</b> Universitat Pompeu Fabra. Pl. de la Merce, 12. 08002 Barcelona. Tel. (+34) 935 422 000.</p>
+        <p style="text-align:left;"><b>Purpose:</b> managing the access to the The Multilingual Corpus of Survey Questionnaires (MCSQ). <br>
+            Your personal data will be kept as long as you do not withdraw your consent, but at the latest as long as the service is kept, and as long as the data is necessary to determine possible derived responsibilities. <br>
+            The provisions established in the regulations about files and documentation shall apply.</p>
+        <p style="text-align:left;"><b>Legal basis:</b> your consent. You may withdraw such at any time.</p>
+        <p style="text-align:left;"><b>Recipients:</b> Pompeu Fabra University. The data will not be transferred to third parties without your consent, except in the cases provided for by law.</p>
+        <p style="text-align:left;"><b>Rights:</b> you can access your data; request their rectification, deletion and in certain cases their portability;<br>
+            you may object to their processing and apply for their limitation by following the procedures described at www.upf.edu/web/proteccio-dades/drets.<br>
+            You can contact the UPF data protection officer (dpd@upf.edu) for any queries, or if you feel that your rights are not properly respected.<br>
+            Should you not be satisfied, you may file a complaint with the Catalan Data Protection Authority.</p>
+    </div> 
+
+    <h2><b>Create an account</b></h2>
+    {% for field, errors in form.errors.items() %}
+        <div class="alert alert-danger alert-dismissible" role="alert">  {{ ', '.join(errors) }}
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+    {% endfor %}
+    <form action="/userRegistry" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}
+        </p>
+        <p>
+            {{ form.email.label }}<br>
+            {{ form.email(size=32) }}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}
+        </p>
+        <p>
+            {{ form.confirm_password.label }}<br>
+            {{ form.confirm_password(size=32) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    </body>
+{% endblock %}
+</html>
+

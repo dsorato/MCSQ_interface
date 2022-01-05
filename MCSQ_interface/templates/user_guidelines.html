@@ -1,0 +1,65 @@
+<!doctype html>
+{% extends "index.html" %}
+{% block body %}
+<body>
+  		<li style="text-align:left;"><b>Technical information about word search</b></li>
+  		<p style="text-align:left;">The searches implemented in the MCSQ interface communicate directly with the Entity-Relationship (ER) MCSQ database,<br>
+  			thus encapsulating SQL searches so the users do not have to worry about writing SQL statements.</p>
+      <li style="text-align:left;"><b>The compare versions functionality</b></li>
+      <p style="text-align:left;">The compare versions functionality <b>DOES NOT</b> use alignment information.<br>
+        The compare versions functionality was developed to compare questions in multiple languages (up to 8), at item level, not to compare aligments<br>
+        If you want to compare alignments, you have to use the word search in alignment table functionality.<br>
+      </p>
+      <li style="text-align:left;"><b>Interpreting the survey_itemid</b></li>
+      <p style="text-align:left;">The <b>survey_itemid</b> is the unique identifier for each text segment in the corpus.<br>
+        It contains relevant information on it, namely the language and country of the questionnaire, the study and the year.<br>
+        Consider the following examples to help you interpret the IDs:<br>
+        The survey_itemid <b>ESS_R02_2004_FRE_FR_6</b> means that the text segment belongs to the questionnaire ESS round 2 released in 2004,<br>
+        written in French from France.<br>
+        The survey_itemid <b>EVS_R04_2008_POR_LU_26</b> means that the text segment belongs to the questionnaire EVS round 4 released in 2008,<br>
+        written in Portuguese from Luxembourg.<br>
+        The survey_itemid <b>SHA_COVID_2020_ENG_SOURCE_7</b> means that the text segment belongs to the questionnaire SHARE COVID study released in 2020,<br>
+        and it is the source questionnaire, written in English<br>
+      </p>
+
+      <li style="text-align:left;"><b>Technical information about the Regular expression (regex) search</b></li>
+      <p style="text-align:left;">Regular expressions (regex) are patterns used to specify a search expression.<br>
+        The regex search option gives users more flexibility for creating search queries in the <b>Request</b>, <b>Response</b>, <b>Introduction</b>, <b>Instruction</b>,<br>
+        and <b>Alignment</b> tables of the MCSQ. A regular expression is a powerful and flexible text search approach, however in order to make use of it,<br>
+        some knowledge about regex operators is required. Below you will find some of the most important operators and short examples to understand them:</p>
+      <ul>
+        <li style="text-align:left;"><b>|</b> denotes a logical OR, or alternation (either of two alternatives). For instance, when searching for the expression card|carte,<br> 
+        the MCSQ will retrieve for you sentences that comprise words that contain either card or carte in them (e.g., card, carte, cardíaco, E-Card)</li>
+        <li style="text-align:left;"><b>*</b> denotes repetition of the previous item zero or more times. For instance, when searching for the expression batt*, the<br>  
+          MCSQ will retrieve for you sentences that comprise words that contain either bat or batt (or batt, or battt, and so on) in them (e.g., debate, rabatt, debatt).</li>
+        <li style="text-align:left;">Similar to the <b>*</b> operator, <b>+</b> denotes repetition of the previous item one or more times, <br> 
+          and <b>?</b> denotes repetition of the previous item zero or one time</li>
+        <li style="text-align:left;"><b>.</b> denotes a wild card, that is, a symbol that replaces any character, including the empty character.<br> 
+          So when searching for the expression be.n, sentences containing "be" next to any character next to "n" will be retrieved, for instance, being, been, well-being, etc.</li>
+        <li style="text-align:left;"><b>^</b> anchors to start of string, i.e., the start of a given sentence in the context of the MCSQ. <br> 
+        Therefore, when searching for the expression ^agree, you will see only sentences that start with agree (e.g., Agree, Agree strongly, agree with statement A).</li>
+        <li style="text-align:left;"><b>$</b> anchors to end of string, i.e. the end of a given sentence in the context of the MCSQ. <br> 
+        So when searching for the expression disagree$, you will see only sentences that end with disagree (e.g. disagree, strongly disagree, neither agree nor disagree).</li>
+        <li style="text-align:left;"><b>()</b> can be used to group items into a single logical item. For instance, when searching for the expression run(s|ning),<br>   
+        sentences containing either runs or running will appear.</li>
+        <li style="text-align:left;">It is also possible to create ranges of values with brackets <b>[]</b>. When searching for the expression carte [0-9], you will find <br>  
+        sentences that contain the word carte followed by a number (e.g. MONTRER CARTE 72, CARTE 16, Veuillez examiner la carte 58.)</li>
+      </ul> 
+      <p style="text-align:left;">All of the above-mentioned operators can be used in combination, which further expands the search possibilities.<br>  
+      That is why learning how to build your regular expressions will allow you to create complex searches in the MCSQ.</p>
+      <li style="text-align:left;"><b>Word search independent of item_type</b></li>
+      <p style="text-align:left;">You can search for words concerning specific item types in the <b>Word search in MCSQ Tables</b> menu<br>
+        by accessing the <b>Request Table</b>, <b>Response Table</b>, <b>Introduction Table</b> and <b>Instruction Table</b> options.<br>
+        In order to search for words independently of item type, i.e. words in text segments of all item types, access the <b>Survey Item Table</b> option.<br>
+      </p>
+  		<li style="text-align:left;"><b>Seaching for words with apostrophe</b></li>
+  		<p style="text-align:left;"> In SQL searches, you have to escape (escaping is a combination of characters that has a meaning other than the literal characters contained therein,<br> 
+			also called meta-characters) the apostrophe (<b>'</b>) character. For instance, if you want to search for <b>d'accord</b>,
+  			then search for <b>d''accord</b> instead.</p>
+		  <li style="text-align:left;"><b>The multiword search</b></li>
+                <p style="text-align:left;"> In order to search correctly for multiple words, please check the <b>Multiple word search?</b> option and separate the words by semicolon (;).<br>
+		For instance, if you want to seach for <b>very happy</b>, write it as <b>very;happy</b> in your word search.</p>
+
+
+</body>
+{% endblock %}

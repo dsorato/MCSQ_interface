@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+{% extends "index.html" %}
+
+
+{% block body %}
+<body>
+<h2>{% block title %} Create TMX from Alignment data {% endblock %}</h2>
+<form method="post">
+    <div class="form-group">
+<div class="input-group">
+    <span class="input-group-addon"><span title="Using ISO codes to represent country and language. For instance, Catalan from Spain is referenced as CAT_ES">Filter by language/country? &#8505;</span>
+        <select name="langcountry" class="selectpicker">
+             {% for langcountry in langcountries %}
+                 <option value= "{{langcountry}}">{{langcountry}}</option>"
+             {% endfor %}
+        </select>
+</div>
+<div class="input-group">
+    <span class="input-group-addon"><span title="Using ISO codes to represent language. For instance, French is referenced as FRE">Filter by language? &#8505;</span>
+        <select name="lang" class="selectpicker">
+             {% for lang in langs %}
+                 <option value= "{{lang}}">{{lang}}</option>"
+             {% endfor %}
+        </select>
+</div>
+<div class="input-group">
+    <span class="input-group-addon"><span title="For instance, ESS for European Social Survey">Filter by survey project? &#8505;</span>
+        <select name="study" class="selectpicker">
+             {% for study in studies %}
+                 <option value= "{{study}}">{{study}}</option>"
+             {% endfor %}
+        </select>
+</div>
+<div class="input-group">
+    <span class="input-group-addon"><span title="Year of the study. For instance, 2020 for SHARE COVID-19">Filter by year? &#8505;</span>
+        <select name="year" class="selectpicker">
+             {% for year in years %}
+                 <option value= "{{year}}">{{year}}</option>"
+             {% endfor %}
+        </select>
+</div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+</body>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+{% extends "index.html" %}
+
+
+{% block body %}
+<body>
+<h2>{% block title %} Search for words in alignments {% endblock %}</h2>
+<form method="post">
+    <div class="form-group">
+        <label for="source_word">Word in source text</label>
+        <input type="text" name="source_word"
+               placeholder="Type word in source text" class="form-control"
+    	           value="{{ request.form['source_word'] }}"></input>
+         <label for="source_word">Word in target text</label>
+         <input type="text" name="target_word"
+               placeholder="Type word in target text" class="form-control"
+                   value="{{ request.form['target_word'] }}"></input>
+        <input type="checkbox" name="displaytagged" value="case"><span title="Part-of-Speech and Named Entity Recognition annotation of words">Display annotations? &#8505;</span> </input>
+        <input type="checkbox" name="multiplew" value="case"><span title="Type words in sequence, separated by ; with no spaces between (e.g., please;answer)">Multiple word search?</span> </input>
+        <input type="checkbox" name="partial" value="case"><span title="Include results where the word appear partially (e.g., search for sleep will not retrieve sleeping).">Partial word search? &#8505;</span> </input>
+        <input type="checkbox" name="casesensitive" value="case"><span title="Differentiate between uppercase/lowercase characters (e.g., Extremely is different than extremely). Available only if 'Partial word search?' is activated.">Case sensitive search? &#8505;</span> </input>
+        <input type="checkbox" name="regex" value="case"><span title="Mark this option if you want to search for a regular expresion. Can be case sensitive or insensitive.">Regex search? &#8505;</span> </input>
+        <input type="checkbox" name="csv" value="case"><span title="Mark this option if you want to download the results as a TSV (tab separated value) instead of seeing them in the interface">Download results as csv? &#8505;</span> </input>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon"><span title="Using ISO codes to represent country and language. For instance, Catalan from Spain is referenced as CAT_ES">Filter target text by language/country? &#8505;</span>
+            <select name="langcountrytarget" class="selectpicker">
+                 {% for langcountrytarget in langcountriestarget %}
+                     <option value= "{{langcountrytarget}}">{{langcountrytarget}}</option>"
+                 {% endfor %}
+            </select>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon"><span title="For instance, ESS for European Social Survey">Filter by survey project? &#8505;</span>
+            <select name="study" class="selectpicker">
+                 {% for study in studies %}
+                     <option value= "{{study}}">{{study}}</option>"
+                 {% endfor %}
+            </select>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon"><span title="Year of the study. For instance, 2020 for SHARE COVID-19">Filter by year? &#8505;</span>
+            <select name="year" class="selectpicker">
+                 {% for year in years %}
+                     <option value= "{{year}}">{{year}}</option>"
+                 {% endfor %}
+            </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+</body>
+
+{% endblock %}

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+{% extends "index.html" %}
+
+{% block body %}
+<body>
+<h2>{% block title %} Search for Part-of-Speech tag sequence {% endblock %}</h2>
+<form method="post">
+     <input type="checkbox" name="csv" value="case"><span title="Mark this option if you want to download the results as a TSV (tab separated value) instead of seeing them in the interface">Download results as csv? &#8505;</span> </input>
+     <input type="checkbox" name="partial" value="case"><span title="Mark this option if the sequence you are indicating is only a part of a bigger sentence">Partial sequence? &#8505;</span> </input>
+     <div class="input-group">
+        <span class="input-group-addon"><span title="For instance, ESS for European Social Survey">Select survey project &#8505;</span>
+        <select name="study" class="selectpicker">
+             {% for study in studies %}
+                 <option value= "{{study}}">{{study}}</option>"
+             {% endfor %}
+        </select>
+    </div>    
+    <div class="input-group">
+        <span class="input-group-addon"><span title="Year of the study. For instance, SHARE COVID=2020">Select year &#8505;</span>
+            <select name="year" class="selectpicker">
+             {% for year in years %}
+                 <option value= "{{year}}">{{year}}</option>"
+             {% endfor %}
+            </select>
+    </div>   
+     <div class="input-group">
+        <span class="input-group-addon"><span title="INTRODUCTION, INSTRUCTION, REQUEST or RESPONSE">Select item type &#8505;</span>
+        <select name="item_type" class="selectpicker">
+             {% for item_type in item_types %}
+                 <option value= "{{item_type}}">{{item_type}}</option>"
+             {% endfor %}
+        </select>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon"><span title="Using ISO codes to represent country and language. For instance, French from France is referenced as FRE_FR">Select language/country &#8505;</span>
+        <select name="langcountry" class="selectpicker">
+             {% for langcountry in langcountries %}
+                 <option value= "{{langcountry}}">{{langcountry}}</option>"
+             {% endfor %}
+        </select>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon"><span title="Using Universal Dependencies Tagset">Select Part-of-Speech tag 1 &#8505;</span>
+        <select name="postag1" class="selectpicker">
+             {% for postag in postags %}
+                 <option value= "{{postag}}">{{postag}}</option>"
+             {% endfor %}
+        </select>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon"><span title="Using Universal Dependencies Tagset">Select Part-of-Speech tag 2 &#8505;</span>
+        <select name="postag2" class="selectpicker">
+             {% for postag in postags %}
+                 <option value= "{{postag}}">{{postag}}</option>"
+             {% endfor %}
+        </select>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon"><span title="Using Universal Dependencies Tagset">Select Part-of-Speech tag 3 &#8505;</span>
+        <select name="postag3" class="selectpicker">
+             {% for postag in postags %}
+                 <option value= "{{postag}}">{{postag}}</option>"
+             {% endfor %}
+        </select>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon"><span title="Using Universal Dependencies Tagset">Select Part-of-Speech tag 4 &#8505;</span>
+        <select name="postag4" class="selectpicker">
+             {% for postag in postags %}
+                 <option value= "{{postag}}">{{postag}}</option>"
+             {% endfor %}
+        </select>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon"><span title="Using Universal Dependencies Tagset">Select Part-of-Speech tag 5 &#8505;</span>
+        <select name="postag5" class="selectpicker">
+             {% for postag in postags %}
+                 <option value= "{{postag}}">{{postag}}</option>"
+             {% endfor %}
+        </select>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon"><span title="Using Universal Dependencies Tagset">Select Part-of-Speech tag 6 &#8505;</span>
+        <select name="postag6" class="selectpicker">
+             {% for postag in postags %}
+                 <option value= "{{postag}}">{{postag}}</option>"
+             {% endfor %}
+        </select>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon"><span title="Using Universal Dependencies Tagset">Select Part-of-Speech tag 7 &#8505;</span>
+        <select name="postag7" class="selectpicker">
+             {% for postag in postags %}
+                 <option value= "{{postag}}">{{postag}}</option>"
+             {% endfor %}
+        </select>
+    </div>
+    <div class="input-group">
+        <span class="input-group-addon"><span title="Using Universal Dependencies Tagset">Select Part-of-Speech tag 8 &#8505;</span>
+        <select name="postag8" class="selectpicker">
+             {% for postag in postags %}
+                 <option value= "{{postag}}">{{postag}}</option>"
+             {% endfor %}
+        </select>
+    </div>
+     <div class="input-group">
+        <span class="input-group-addon"><span title="Using Universal Dependencies Tagset">Select Part-of-Speech tag 9 &#8505;</span>
+        <select name="postag9" class="selectpicker">
+             {% for postag in postags %}
+                 <option value= "{{postag}}">{{postag}}</option>"
+             {% endfor %}
+        </select>
+    </div>
+     <div class="input-group">
+        <span class="input-group-addon"><span title="Using Universal Dependencies Tagset">Select Part-of-Speech tag 10 &#8505;</span>
+        <select name="postag10" class="selectpicker">
+             {% for postag in postags %}
+                 <option value= "{{postag}}">{{postag}}</option>"
+             {% endfor %}
+        </select>
+    </div>
+
+      
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+</body>
+
+{% endblock %}

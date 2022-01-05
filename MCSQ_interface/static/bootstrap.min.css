@@ -1,0 +1,166 @@
+#body  { 
+min-height: 400px;
+margin-bottom: 100px;
+clear: both;
+font-size: 22px;
+
+}
+
+ nav {
+     font-size: 18px !important;
+        }
+.nav a{
+    font-size: 18px !important;
+    }
+.nav li{
+    font-size: 18px !important;
+   }
+
+.btn-primary {
+    font-size: 20px !important;
+    background-color: #8064A2 !important;
+
+}
+
+
+.inlineTable {
+    display: inline-block;}
+
+.article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #A9A9A9;
+}
+
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 20px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.btn .btn-primary{
+    background-color:green;
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+
+.input-group input {
+    display: block;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.input-group .input-group-addon {
+    border-right: none;
+    border:0;
+    background: inherit;
+    font-size: 20px;
+}
+
+
+input[type="text"] {
+    width: 400px;
+    font-size: 20px;
+}
+
+.selectpicker{
+    width: 400px;
+    font-size: 20px;
+}
+
+
+
+
+a, h1, h2       { color: #377ba8;}
+h1              { border-bottom: 2px solid #eee;margin: 0; }
+h2              { font-size: 1.2em; margin: 0;}
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px    
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+
+.alert-dismissible {
+  padding-right: ($close-font-size + $alert-padding-x * 2);
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: $alert-padding-y $alert-padding-x;
+    color: inherit;
+  }
+}
+
+table.dataframe, .dataframe th, .dataframe td {
+  border: none;
+  border-bottom: 1px solid #C8C8C8;
+  border-collapse: collapse;
+  text-align:center;
+  padding: 10px;
+  margin-bottom: 40px;
+  font-size: 0.9em
+}
+
+
+
+tr:nth-child(odd)       { background-color:#eee; }
+tr:nth-child(even)  { background-color:#fff; }
+
+tr:hover            { background-color: #ffff99;}
+
+#footer {
+    background-color: black;
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    width:100%;
+    height:50px;
+    color: white;
+}
+
+
+#initial-message{
+   word-wrap: break-word;
+   width: 1500px;
+
+}

@@ -1,0 +1,108 @@
+<!doctype html>
+{% extends "index.html" %}
+{% block body %}
+<body>
+      <h2>Version v3.0 annotated (Rosalind Franklin) - Officially released on 02/08/2021</h2>
+      <b>Version 3.0 of the Multilingual Corpus of Survey Questionnaires (MCSQ), named after the scientist Rosalind Franklin, includes new annotations and datasets to the corpus.<br> The following datasets were included in Version 3.0:</b>
+      <ul>
+        <li style="text-align:left;"><b>Wage Indicator:</b><br> round 1 and COVID-19 questionnaires for the English (source and Great Britain), Czech, French (France), German (Germany), Norwegian, Portuguese (Portugal), Russian (Russian Federation), and Spanish (Spain)<a href="#wis">[1]</a>.</li>
+        <li style="text-align:left;"><b>European Values Study:</b><br> wave 2 questionnaires concerning the English (Great Britain and Ireland), French (France), German (Germany), Portuguese (Portugal), and Spanish (Spain)</li>
+        <li style="text-align:left;"><b>European Social Survey:</b><br> rounds 8 and 9 questionnaires concerning Catalan, Czech, English (Ireland and Great Britain), Portuguese (Portugal), and Spanish (Spain), Russian (Estonia in both rounds, Israel in round 8, and Latvia in round 9).</li>
+      </ul> 
+      <p style="text-align:left;">
+        Additionally, the following questionnaires in the European Social Survey rounds 8 and 9, which were previously released with missing data in version 2.0, were completed in this release:<br> French (Belgium, Switzerland, France), German (Austria, Switzerland), Norwegian and Russian (Lithuania and Russian Federation in round 8 and Latvia in round 9)
+      </p>
+      <p style="text-align:left;">
+        Lastly, we added Named Entity Recognition (NER) annotations to the corpus. This annotation was executed with pre-trained models from different sources, namely <a href="https://github.com/flairNLP/flair">Flair</a> (English, German, French, and Spanish), <a href="https://spacy.io/">SpaCy</a> (Catalan, Norwegian and Portuguese) and <a href="https://github.com/deepmipt/Slavic-BERT-NER">Slavic BERT</a> from DeepPavlov (Czech and Russian).
+        We declare that due to the domain specificity and nature of the texts, some of the models (e.g., Catalan) performed worse than others, especially in cases of instruction segments.
+      </p>
+
+      <p style="text-align:left;" id="wis">[1] we attributed the questionnaire languages to the aforementioned countries due to metatada consistency. In reality, for a given language, the same questionnaire is administered in several other countries (e.g., French is administered in Belgium, Switzerland, Canada, etc ), the only difference being the salary range answer options. We opted for including only one questionnaire for each of the aforementioned languages to avoid text repetition in the database.</p>
+
+      <h2>Version v2.0 annotated (Mileva Marić-Einstein) - Released on 22/03/2021</h2>
+      <li style="text-align:left;"><b>New data annotation:</b></li>
+      <p style="text-align:left;">Part-of-speech (POS) tags:<br>
+        MCSQ text segments now have Part-of-speech annotation. The POS tagging was done using <a href="https://github.com/flairNLP/flair">Flair</a>, using
+        the <a href="https://universaldependencies.org/u/pos/">Universal Dependencies tagset</a>.  
+      </p>
+
+      <h2>Version v2.0 non-annotated (Mileva Marić-Einstein) - Released on 27/02/2021</h2>
+      <li style="text-align:left;"><b>New datasets (questionnaires and their alignments):</b></li>
+      <p style="text-align:left;">EVS wave 5:<br>
+        Available in the following languages: Czech, English (Great Britain, Ireland and Malta), French (Belgium, France, Switzerland and Luxembourg),
+        German (Austria, Germany, Switzerland and Luxembourg), Norwegian, Portuguese (Portugal and Luxembourg), Spanish (Spain) and Russian (Azerbaijan,
+        Belarus, Estonia, Georgia, Lithuania, Latvia, Moldavia, Russian Federation and Ukraine).
+      </p>
+
+       <p style="text-align:left;">ESS round 7:<br>
+       available in the following languages: English (source, Great Britain and Ireland), French (Belgium, France and Switzerland), German (Austria, Germany and Switzerland), Norwegian and Portuguese (Portugal)
+      </p>
+
+       <p style="text-align:left;">ESS round 8:<br>
+       available in the following languages: English (source), French (Belgium, France and Switzerland), German (Austria, Germany and Switzerland), Norwegian and Russian (Lithuania and Russian Federation).
+      </p>
+
+       <p style="text-align:left;">ESS round 9:<br>
+       available in the following languages: English (source), French (Belgium, France and Switzerland), German (Austria, Germany, Switzerland), Norwegian and Russian (Latvia and Russian Federation).
+      </p>
+
+      <p style="text-align:left;">SHARE waves 7 and 8:<br>
+       available in the following languages: Catalan, Czech, English (source and Malta), French (Belgium, France, Switzerland and Luxembourg), German (Austria, Germany, Switzerland  and Luxembourg), Portuguese (Portugal and Luxembourg), Russian (Estonia, Israel and Latvia) and Spanish (Spain)
+      </p>
+
+      <li style="text-align:left;"><b>Added ESS supplementary modules:</b></li>
+
+       <p style="text-align:left;">ESS round 1:<br>
+       Module G  in NOR_NO, CAT_ES, and SPA_ES questionnaires.
+      </p>
+
+      <p style="text-align:left;">ESS round 2:<br>
+       CAT_ES (G, National Module),  ENG_GB (J),  ENG_IE (H), ENG_LU (H, I), ENG_SOURCE (H), FRE_BE (H), FRE_CH (G, J), FRE_FR (J, G), FRE_LU (G, H, I), GER_AT (J, H, G), GER_CH (J, H, G), GER_DE (J, H, G, N), GER_LU (G, H, I), NOR_NO (G, H), POR_PT (G, H, J), RUS_EE (H, J), RUS_UA (National modules T and R, H, J).
+      </p>
+
+      <p style="text-align:left;">ESS round 3:<br>
+       CAT_ES (G, I), ENG_GB (G, I), ENG_IE (G, I), ENG_SOURCE (G, I),FRE_BE (G, I), FRE_CH (G, I), FRE_FR (G, I), GER_AT (G, I), GER_CH (G, I), GER_DE (G, I), NOR_NO (G, I), POR_PT (G, I), RUS_EE (G, I), RUS_LV (G, I), RUS_RU (G, I), RUS_UA (G, I, National module R), SPA_ES (G, I, national module K).
+      </p>
+
+      <p style="text-align:left;">ESS round 4:<br>
+      CAT_ES (G, I), CZE_CZ (G, I), ENG_GB (G, I), ENG_IE (G, H, I), ENG_SOURCE (G, I), FRE_BE (G), FRE_CH (G), FRE_FR (G), GER_AT (G, I), GER_CH (G), GER_DE (G, I, N), NOR_NO (G, I), POR_PT (G, I), RUS_EE (G, I), RUS_IL (G, I), RUS_LT (G, I), RUS_LV (G, I), RUS_RU (G, I), RUS_UA (G, I), SPA_ES (G, I).
+      </p>
+
+      <p style="text-align:left;">ESS round 5:<br>
+      CAT_ES (G, H, J), CZE_CZ (G, H, J), ENG_GB (G, H, J), ENG_IE (G, H, J), ENG_SOURCE (G, H, J), FRE_BE (G, H), FRE_CH (G, H), FRE_FR (G, H), GER_AT (G, H, J), GER_CH (G, H, J, I), GER_DE (G, H, J, N), NOR_NO (G, H, J), POR_PT (G, H, J), RUS_IL (H), RUS_LT (G, H, J), RUS_RU (G, H, J), RUS_UA (G, H, J), RUS_RU (G, H, J), RUS_UA (G, H, J), SPA_ES (G, H, J).
+      </p>
+
+       <p style="text-align:left;">ESS round 6:<br>
+       CAT_ES (H, J), CZE_CZ (H, J), ENG_GB (H, J), ENG_IE (H, J), ENG_SOURCE (H, J), FRE_BE (H, J), FRE_CH (H, J), FRE_FR (H, J), GER_CH (H, J), GER_DE (H, J, N), NOR_NO (H, J), POR_PT (H, J), RUS_EE (H, J, I), RUS_IL (I), RUS_RU (H, J), RUS_UA (H, J, I), SPA_ES (H, J).
+      </p>
+
+
+      <li style="text-align:left;"><b>Question introduction annotation:</b></li>
+      <p style="text-align:left;">coverage of introduction text segment identification increased in ESS rounds 4, 5, 6 and 7.</p>
+
+       <h2>Version v1.1 (Beatrice Worsley) - Released on 14/10/2020</h2>
+      <li style="text-align:left;"><b>New datasets (questionnaires and their alignments):</b></li>
+      <p style="text-align:left;">SHARE COVID questionnaires available for the following languages:<br>
+        Czech (Czech Republic), English (Malta and source questionnaire), French (Belgium, Switzerland, Luxembourg, France), German (Austria, Switzerland,
+        Luxembourg, Germany), Portuguese (Portugal), Spanish (Spain) and Russian (Estonia, Israel, Latvia). 
+      </p>
+      <li style="text-align:left;"><b>Changes in the ER model:</b></li>
+      <p style="text-align:left;"> The <b>response_itemid</b> and <b>survey_item_elementid</b> IDs were dropped, the PKs for the Response and Survey_item table are only <b>responseid</b> and <b>survey_itemid</b> respectively.<br> 
+        Column <b>module_description</b> in Module table was dropped.<br> 
+        <b>text</b> and <b>item_value</b> columns included in the table Survey_item (redudancy purposes).<br> 
+        References to Survey_item table in the Alignment table are now <b>source_survey_itemid</b> and <b>target_survey_itemid</b> columns.
+      </p>
+      <li style="text-align:left;"><b>Hotfixes:</b></li>
+      <p style="text-align:left;">Fixed inconsistencies in the modules of EVS 1999 and EVS 2008 datasets.<br> 
+        Deleted footnote numbers in ESS English source files.<br> 
+        Standardized character representation for the following characters (and their uppercase versions): <br> 
+        'å', 'ů', 'ä', 'ï', 'ö', 'ü', 'ý', 'č', 'ě', 'š', 'ř', 'ţ', 'ã'<br> 
+        Fixed certain typos/misspellings.<br>
+        Standardized item_value column to not show decimal cases.
+      </p>
+     
+
+      
+
+</body>
+{% endblock %}

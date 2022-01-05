@@ -1,0 +1,10 @@
+<!doctype html>
+{% extends "index.html" %}
+<title>{{maintitle}}</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<div class=page>
+  		<h2>{{title}}</h2>
+{% block content %}
+  		{{ table|safe }}
+{% endblock %}
+</div>

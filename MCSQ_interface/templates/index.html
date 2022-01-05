@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<title>{{maintitle}}</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<center>
+  <nav class="navbar navbar-default navbar-inverse" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+     <!--  <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Login dropdown</a>
+      </div> -->
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <li><a href="https://www.upf.edu/web/mcsq/">MCSQ Official Site</a></li>
+          <li><a href="https://repo.clarino.uib.no/xmlui/handle/11509/142">MCSQ CLARINO Repository</a></li>
+          <li><a href="{{ url_for('user_guidelines') }}">User Guidelines</a></li>
+          <li><a href="{{ url_for('changelogs') }}">Changelogs</a></li>
+          {% if current_user.is_authenticated == False %}
+           <li><a href="{{ url_for('user_registry') }}">Register</a></li>
+          <li><a href="{{ url_for('login') }}">Login</a></li>
+          {% endif %}
+          {% if current_user.is_authenticated %}
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hi, {{current_user.name}} <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Compare questionnaires <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="{{ url_for('compare_whole') }}">Compare whole questionnaire</a></li>
+              <li><a href="{{ url_for('compare_by_item_type') }}">Compare by item types</a></li>
+              <li><a href="{{ url_for('compare_by_word') }}">Compare by word</a> </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search Tables<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="{{ url_for('search_request') }}">Request Table</a></li>
+              <li><a href="{{ url_for('search_instruction') }}">Instruction Table</a></li>
+              <li><a href="{{ url_for('search_introduction') }}">Introduction Table</a></li>
+              <li><a href="{{ url_for('search_response') }}">Response Table</a></li>
+              <li><a href="{{ url_for('search_survey_item') }}">Survey Item Table</a></li>
+              <li class="divider"></li>
+              <li><a href="{{ url_for('search_alignment') }}">Alignment Table</a></li>
+              <li class="divider"></li>
+              <li><a href="{{ url_for('search_by_pos_tags') }}">Part-of-Speech tag sequence</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Collocations<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="{{ url_for('compute_collocation') }}">Word Collocation</a></li>
+              <li><a href="{{ url_for('compare_collocation') }}">Compare Word Collocations</a></li>              
+            </ul>
+          </li>
+          <li><a href="{{ url_for('word_frequency') }}">Word Frequency</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">MCSQ datasets<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="{{ url_for('display_questionnaire') }}">Display questionnaire</a></li>
+              <li><a href="{{ url_for('display_alignment') }}">Display alignment</a></li>
+              <li><a href="{{ url_for('display_survey') }}">Display Survey Table</a></li>
+              <li><a href="{{ url_for('display_modules') }}">Display Module Table</a></li>
+              <li class="divider"></li>
+              <li><a href="{{ url_for('download_questionnaire') }}">Download questionnaire</a></li>
+              <li><a href="{{ url_for('download_alignment') }}">Download alignment</a></li>
+              <li><a href="{{ url_for('download_survey') }}">Download Survey Table</a></li>
+              <li><a href="{{ url_for('download_modules') }}">Download Module Table</a></li>
+              <li class="divider"></li>
+              <li><a href="{{ url_for('create_tmx') }}">Create TMX</a></li>
+            </ul>
+          </li>
+        </ul>
+       {% endif %}
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+<div id=body>
+  <div class=page>
+      <h2>{{title}}</h2>
+    </div>
+{% block content %}
+<div id="content">
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible" role="alert"> {{ message }}
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      </div>
+          {% endfor %}
+  {% endif %}
+{% endwith %}
+
+</div>
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
+</div>
+<div id="footer">  
+    <p>[MCSQ]: The Multilingual Corpus of Survey Questionnaires</p>
+  </div>
+</div>
+</center>

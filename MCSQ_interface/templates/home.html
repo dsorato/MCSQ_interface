@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+
+{% extends "index.html" %}
+
+{% block body %}
+
+{% if current_user.is_authenticated == False %}
+<div style="float:center;">
+Hello! This is the MCSQ search interface. Please register and activate your account (you will receive an email to activate your account upon registration) to use the search functionalities.<br>
+The [MCSQ]: Multilingual Corpus of Survey Questionnaires is an open-access research resource. The MCSQ is permanently preserved in the <a href="https://repo.clarino.uib.no/xmlui/handle/11509/142">CLARINO repository</a>, where it can be freely downloaded.
+</div>
+{% endif %}
+{% if current_user.is_authenticated == True %}
+  <div id="initial-message" style="float:center;">
+   The MCSQ query interface offers easy-to-use functionalities for end-users that are not acquainted with programming and/or data manipulation libraries. <br>
+   Other than common search functionalities offered by off-the-shelf corpus query engines, the MCSQ interface provides features that are convenient for translators and survey practitioners, such as allowing users to build their own translation memories and facilitating the retrieval and comparison of multilingual data. <br>
+   Explore the MCSQ functionalities in the menus above.
+    </div>
+  {% endif %}
+
+<div style="float:center;">
+<img src="static/mcsq.png"/>
+</div>
+
+{% endblock %}
+</html>
+
