@@ -1,0 +1,20 @@
+All the source code in this repository is licensed under the EUPL-1.2 (European Union Public License).  
+Authors: Danielly Sorato
+All rights reserved
+
+Multilingual Corpus of Survey Questionnaires (MCSQ) Interface
+
+This project is funded from the EU Horizon 2020 Research and Innovation Programme (2014-2020) under Grant Agreement  No. 823782
+
+The use of this software is licensed under under EUPL-1.2 (European Union Public Licence) 
+
+When using this code in any way the article must be cited:
+@inproceedings{sorato2021multilingual,
+  title={The Multilingual Corpus of Survey Questionnaires Query Interface},
+  author={Sorato, Danielly and Zavala-Rojas, Diana},
+  booktitle={Proceedings of the 5th Joint SIGHUM Workshop on Computational Linguistics for Cultural Heritage, Social Sciences, Humanities and Literature},
+  pages={43--48},
+  year={2021}
+}
+
+
